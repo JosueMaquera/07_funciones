@@ -3,8 +3,13 @@ using namespace std;
 int factorial (int);
 int main () {
 	int m,n,c;
-	cin>>m>>n;
+	cout<<"Ingresa la los elementos de la conbinatoria m y n: "<<endl;
+	cout<<"Ingrese el valor de m: ";
+	cin>>m;
+	cout<<"Ingrese el valor de n: ";
+	cin>>n;
 	c=factorial(m)/(factorial(n)*factorial(m-n)) ;
+	cout<<"El resultado de la combinatoria es: ";
 	cout<<c;
 	return 0;
 }
