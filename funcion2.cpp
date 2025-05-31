@@ -3,23 +3,27 @@ using namespace std;
 int determinar_menor(int num1 , int num2);
 int determinar_mayor(int num1 , int num2);
 bool validacion_datos(int num1, int num2);
+void imprimir_resultados(int resto , int cociente, int mayor, int menor);
 int main() {    
-    int num1,num2,i,dividendo,cociente,divisor;
+    int num1,num2,dividendo,cociente,divisor,resto,mayor,menor;
+    cout<<"Ingrese los numeros a dividir el mayor siempre sera el dividendo y el menor el divisor: "<<endl;
     cin>>num1>>num2;
     cociente=0;
     if (!validacion_datos(num1,num2)) {
         cout<<"Datos invalidos: ambos deben ser positivos"<<endl;
         return 1;
     }
-    dividendo=determinar_mayor(num1,num2);
-    divisor=determinar_menor(num1,num2);
+    mayor = determinar_mayor(num1,num2);
+    menor = determinar_menor(num1,num2);
+    dividendo = mayor;
+    divisor = menor;
     while (dividendo>=divisor) {
         dividendo = dividendo - divisor;
         cociente = cociente + 1;
     }
-    cout<<cociente<<endl;
-    cout<<dividendo<<endl;
-    return 0;
+    resto=dividendo;
+     imprimir_resultados(resto, cociente, mayor, menor);
+    return 0;       
 }
 int determinar_mayor(int num1 , int num2) {
     int mayor;
@@ -48,4 +52,9 @@ bool validacion_datos(int num1 , int num2) {
     else {
         return false;
     }
+}
+void imprimir_resultados(int resto, int cociente, int dividendo, int divisor) {
+    cout<<"-------------------------------------"<<endl;
+    cout<<"El cociente de la division "<<dividendo<<"/"<<divisor<<" es: "<<cociente<<endl;
+    cout<<"El resto de la division es: "<<resto;
 }
