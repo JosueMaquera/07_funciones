@@ -1,15 +1,12 @@
 #include <iostream>
 using namespace std;
 int determinar_primo(int num1);
+void imprimir_resultados(int divisores);
 int main() {
     int num1,b,c,d,divisores;
     cin >> num1;
     divisores = determinar_primo(num1);
-    if (divisores == 2) {
-        cout << "Es primo";
-        return 1;
-    }
-    cout << "No es primo";
+    imprimir_resultados(divisores);
 }
 int determinar_primo(int num1) {
     int divisores; 
@@ -20,4 +17,11 @@ int determinar_primo(int num1) {
         }
     }
     return divisores;
+}
+void imprimir_resultados(int divisores) {
+    if (divisores == 2) {
+        cout << "Es primo";
+    } else {
+        cout << "No es primo";
+    }
 }
