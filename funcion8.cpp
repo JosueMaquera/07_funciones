@@ -6,7 +6,7 @@ int main() {
     int mcm, mcd, num1 , num2, i;
     cin >> num1 >> num2;
     mcd = maximo_comun_divisor(num1,num2);
-    mcm = (num1 * num2) / mcd;
+    mcm = minimo_comun_multiplo(num1,num2,mcd);
     cout << "El maximo comun divisor es: " << mcd << endl;
     cout << "El minimo comun multiplo es: " << mcm << endl;
 
@@ -22,4 +22,9 @@ int maximo_comun_divisor(int num1, int num2) {
         i = i + 1;
     }
     return mcd;
+}
+int minimo_comun_multiplo(int num1, int num2, int mcd) {
+    int mcm;
+    mcm = (num1 * num2) / mcd;
+    return mcm;
 }
