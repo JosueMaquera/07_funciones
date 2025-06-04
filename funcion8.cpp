@@ -2,9 +2,14 @@
 using namespace std;
 int minimo_comun_multiplo(int, int, int);
 int maximo_comun_divisor(int, int);
+bool validar_datos(int, int);
 int main() {
-    int mcm, mcd, num1 , num2, i;
+    int mcm, mcd, num1 , num2;
     cin >> num1 >> num2;
+    if (validar_datos(num1,num2)) {
+        cout << "Ingrese valores positivos";
+        return 1;
+    }
     mcd = maximo_comun_divisor(num1,num2);
     mcm = minimo_comun_multiplo(num1,num2,mcd);
     cout << "El maximo comun divisor es: " << mcd << endl;
@@ -27,4 +32,7 @@ int minimo_comun_multiplo(int num1, int num2, int mcd) {
     int mcm;
     mcm = (num1 * num2) / mcd;
     return mcm;
+}
+bool validar_datos(int num1, int num2) {
+    return num1 <= 0 || num2 <= 0;
 }
